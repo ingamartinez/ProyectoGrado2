@@ -132,23 +132,45 @@
             url: 'pacientes/' + id,
             data: $(this).serialize(),
             success: function () {
-                location.reload();
+                swal(
+                    'Editado',
+                    'El Paciente ha sido editado',
+                    'success'
+                ).then(function() {
+                    location.reload();
+                })
             }
         });
     });
 
-    $('#form-eliminar-paciente').submit(function (e) {
+    $('.eliminar-paciente').on('click', function (e) {
         e.preventDefault();
         var fila = $(this).parents('tr');
         var id = fila.data('id');
 
         $.ajax({
+            headers:{'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             type: 'DELETE',
             url: 'pacientes/' + id,
             data: $(this).serialize(),
             success: function () {
-                alert('Paciente Eliminado');
-                location.reload();
+                swal({
+                    title: '¿Estas seguro?',
+                    text: "No podrás recuperar los datos",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, eliminalo'
+                }).then(function () {
+                    swal(
+                        'Eliminado',
+                        'El Paciente ha sido borrado',
+                        'success'
+                    ).then(function() {
+                        location.reload();
+                    });
+                });
             }
         });
     });
