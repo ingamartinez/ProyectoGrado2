@@ -62,4 +62,17 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest(route('login'));
     }
+
+    protected function convertExceptionToResponse(Exception $e)
+    {
+//        $debug = config('app.debug', false);
+//
+//        if ($debug) {
+//            return (new SymfonyDisplayer($debug))->createResponse($e);
+//        }
+//        dd($e);
+
+        return response()->view('errors.500', compact('e'), 500);
+    }
+
 }
