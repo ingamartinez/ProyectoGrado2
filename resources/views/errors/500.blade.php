@@ -33,7 +33,6 @@
     <a class="btn btn-lg btn-default-outline" href="{{url('/')}}"><i class="fa fa-home"></i>Ir a la pagina principal</a>
 
     {{dd($e)}}
-
 </div>
 
 <!-- End Login Screen -->
