@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <div class="form-group">
                                     <label for="tipo-sangre">Tipo de Sangre</label>
-                                    <select class="form-control" id="form-editar-paciente-tipo-sangre" name="tipo_sangre">
+                                    <select class="form-control" id="form-editar-paciente-tipo-sangre" name="tipo_sangre" title="select-tipo-sangre">
                                         <option>Seleccione...</option>
                                         <option value='O'>O</option>
                                         <option value='B'>B</option>
@@ -73,7 +73,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="RH">RH</label>
-                                <select class="form-control" id="form-editar-paciente-RH" name="RH">
+                                <select class="form-control" id="form-editar-paciente-RH" name="RH" title="select-RH">
                                     <option>Seleccione...</option>
                                     <option value='+'>+</option>
                                     <option value='-'>-</option>
