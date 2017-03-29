@@ -182,6 +182,12 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        /*
+         * Spatie
+         */
+        Spatie\Permission\PermissionServiceProvider::class,
+
+
     ],
 
     /*

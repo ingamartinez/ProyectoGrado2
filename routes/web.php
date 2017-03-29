@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
+    dd($foreignKeys = config('laravel-permission.foreign_keys'));
+    dd($foreignKeys['users']);
+
     return view('welcome');
 });
 
 Route::resource('pacientes','PacienteController');
+
