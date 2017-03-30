@@ -12,11 +12,28 @@
 */
 
 Route::get('/', function () {
-    dd($foreignKeys = config('laravel-permission.foreign_keys'));
-    dd($foreignKeys['users']);
-
     return view('welcome');
 });
 
-Route::resource('pacientes','PacienteController');
 
+//Rutas de Login
+Route::resource('log','LogController');
+
+
+Route::get('logout','LogController@Logout');
+Route::resource('pacientes','PacienteController');
+Route::resource('dashboard','AdminController');
+
+Route::get('create-admin', function () {
+
+    $admin = new \App\Model\Administrador();
+
+    $admin->name="Cristian Matute";
+    $admin->email="admin@admin.com";
+    $admin->password= Hash::make('123');
+
+
+    $admin->save();
+
+    return 'Creado';
+});

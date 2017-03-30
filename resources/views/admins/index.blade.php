@@ -21,7 +21,7 @@
                             <li><a href="#">
                                     <i class="fa fa-gear"></i>Account Settings</a>
                             </li>
-                            <li><a href="{{url('#')}}">
+                            <li><a href="{{url('logout')}}">
                                     <i class="fa fa-sign-out"></i>Logout</a>
                             </li>
                         </ul>
@@ -29,13 +29,13 @@
                 </ul>
             </div>
 
-            <a class="logo" href="index.html">se7en</a>
+            <a class="logo" href="dashboard">se7en</a>
         </div>
         <div class="container-fluid main-nav clearfix">
             <div class="nav-collapse">
                 <ul class="nav">
                     <li>
-                        <a class="current" href="{{url('/')}}">
+                        <a class="current" href="{{url('dashboard')}}">
                             <span aria-hidden="true" class="se7en-home"></span>Dashboard</a>
                     </li>
 
@@ -49,7 +49,7 @@
 @section('container')
     <div class="page-title">
         <h1>
-            Listado de Productos
+            Listado de Personal
         </h1>
     </div>
 
@@ -59,7 +59,7 @@
             <div class="widget-container fluid-height clearfix">
                 <div class="heading">
                     <button class="btn btn-success" data-toggle="modal" href="#modal-agregar-paciente">
-                        <i class="fa fa-plus-square"></i>Agregar Paciente
+                        <i class="fa fa-plus-square"></i>Agregar Personal
                     </button>
 
                 </div>
@@ -72,39 +72,42 @@
                             Cedula
                         </th>
                         <th>
+                            Email
+                        </th>
+                        <th>
                             Nombre
                         </th>
                         <th>
                             Telefono
                         </th>
                         <th>
-                            Dirección
+                            Direccion
                         </th>
                         <th>
                             Sexo
                         </th>
                         <th>
-                            Tipo Sangre
-                        </th>
-                        <th>
-                            RH
+                            Tipo de Usuario
                         </th>
                         <th>
                             Fecha Creación
                         </th>
+                        <th>
+                            Fecha Modificación
+                        </th>
                         <th></th>
                         </thead>
                         <tbody>
-                        @foreach($pacientes as $paciente)
-                            <tr data-id="{{$paciente->id}}">
+                        @foreach($personal as $persona)
+                            <tr data-id="{{$persona->id}}">
                                 <td>{{$paciente->cedula}}</td>
+                                <td>{{$paciente->email}}</td>
                                 <td>{{$paciente->nombre}}</td>
                                 <td>{{$paciente->telefono}}</td>
                                 <td>{{$paciente->direccion}}</td>
-                                <td>{{$paciente->sexo}}</td>
-                                <td>{{$paciente->tipo_sangre}}</td>
-                                <td>{{$paciente->RH}}</td>
+                                <td>{{$paciente->tipo}}</td>
                                 <td>{{$paciente->created_at}}</td>
+                                <td>{{$paciente->updated_at}}</td>
 
                                 <td class="actions">
                                     <div class="action-buttons">
@@ -118,7 +121,6 @@
                                 </td>
                             </tr>
                         @endforeach
-
                         </tbody>
                     </table>
                 </div>

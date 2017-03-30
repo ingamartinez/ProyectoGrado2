@@ -35,6 +35,7 @@ class CreateBaseTables extends Migration
             $table->enum('sexo', ['H', 'M']);
             $table->string('direccion');
             $table->enum('tipo', ['DOCTOR', 'ENFERMERA', 'ENFERMERA JEFE', 'ADMIN', 'ADMICIONISTA']);
+            $table->rememberToken();
             $table->timestamps();
         });
 
