@@ -10,6 +10,10 @@ use Redirect;
 
 class LogController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('guest:web_admins',['except' => array('Logout')]);
+    }
 
     public function index()
     {
@@ -20,7 +24,7 @@ class LogController extends Controller
     {
 //        dd($request->all());
         if(Auth::guard('web_admins')->attempt(['email'=>$request['email'],'password'=>$request['password']])) {
-            return redirect()->intended('dashboard');
+            return redirect()->intended('admin/dashboard');
         }
 
 

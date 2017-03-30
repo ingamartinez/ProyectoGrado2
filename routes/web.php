@@ -22,7 +22,7 @@ Route::resource('log','LogController');
 
 Route::get('logout','LogController@Logout');
 Route::resource('pacientes','PacienteController');
-Route::resource('dashboard','AdminController');
+
 
 Route::get('create-admin', function () {
 
@@ -36,4 +36,9 @@ Route::get('create-admin', function () {
     $admin->save();
 
     return 'Creado';
+});
+
+Route::group(['middleware' => 'auth:web_admins','prefix' => 'admin'], function () {
+    Route::resource('dashboard','AdminController');
+
 });

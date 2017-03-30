@@ -69,10 +69,10 @@
             <div class="form-group">
                 <input class="form-control" name="password" placeholder="Contraseña" type="password"><input type="submit" value="&#xf054;">
             </div>
-            <div class="form-options clearfix">
-                <a class="pull-right" data-toggle="modal" href="#modal-registrar">Registrate</a>
+            {{--<div class="form-options clearfix">--}}
+                {{--<a class="pull-right" data-toggle="modal" href="#modal-registrar">Registrate</a>--}}
 
-            </div>
+            {{--</div>--}}
         </form>
     </div>
 </div>
