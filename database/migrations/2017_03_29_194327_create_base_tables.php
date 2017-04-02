@@ -60,6 +60,7 @@ class CreateBaseTables extends Migration
 
 
 
+
     }
 
     /**

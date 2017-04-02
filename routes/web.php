@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login', function () {
+    return view('auth.login');
+});
+
 
 //Rutas de Login
 Route::resource('log','LogController');
@@ -42,3 +46,5 @@ Route::group(['middleware' => 'auth:web_admins','prefix' => 'admin'], function (
     Route::resource('dashboard','AdminController');
 
 });
+
+Route::resource('heartbeat','HeartBeatController');

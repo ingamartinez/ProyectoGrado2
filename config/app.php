@@ -178,14 +178,14 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /*
+         * Spatie
+         */
+        Spatie\Permission\PermissionServiceProvider::class,
+        /*
          * Laravel IDE Helper
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
-        /*
-         * Spatie
-         */
-        Spatie\Permission\PermissionServiceProvider::class,
 
 
     ],
