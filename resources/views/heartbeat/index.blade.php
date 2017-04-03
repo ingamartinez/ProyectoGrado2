@@ -55,12 +55,12 @@
         <div class="col-lg-12">
             <div class="widget-container fluid-height clearfix">
                 <div class="heading">
-
+                    <button id="boton" class="btn btn-default">Hola </button>
 
                 </div>
 
                 <div class="widget-content padded clearfix">
-                    <example></example>
+                    <div id="svg-wrapper"></div>
                 </div>
             </div>
         </div>
@@ -69,9 +69,10 @@
 @endsection
 
 @push('script')
-<script src="{{ asset('js/app.js') }}"></script>
+
 
 <script>
+
     $(document).ready(function () {
         $('#example').dataTable({
             "language": {
@@ -93,8 +94,11 @@
                 "aTargets": [-1]
             }]
         });
+
     });
 
+
 </script>
+
 
 @endpush

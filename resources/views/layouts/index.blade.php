@@ -60,6 +60,27 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <style>
+        #svg-wrapper {
+            width: 500px;
+            height: 160px;
+            margin: 2em auto;
+        }
+
+        svg path {
+            fill: none;
+            stroke: #000;
+            stroke-width: 1.5px;
+        }
+
+        svg .axis {
+            font-size: 12px;
+        }
+
+        svg .axis path {
+            display: none;
+        }
+    </style>
 </head>
 <body class="page-header-fixed bg-1">
 <div id="app">
@@ -77,63 +98,63 @@
     </div>
 </div>
 
-
-
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 {{--<script src="http://code.jquery.com/jquery-1.10.2.min.js" type="text/javascript"></script>--}}
 {{--<script src="{{asset('javascripts/jquery-3.1.1.js')}}" type="text/javascript"></script>--}}
-{{--<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>--}}
-{{--<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/raphael.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/selectivizr-min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.mousewheel.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.vmap.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.vmap.sampledata.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.vmap.world.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.bootstrap.wizard.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/fullcalendar.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/gcal.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.dataTables.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/datatable-editable.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.easy-pie-chart.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/excanvas.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.isotope.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/isotope_extras.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/modernizr.custom.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.fancybox.pack.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/select2.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/styleswitcher.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/wysiwyg.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/summernote.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.inputmask.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.validate.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/bootstrap-fileupload.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/bootstrap-datepicker.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/bootstrap-timepicker.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/bootstrap-colorpicker.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/bootstrap-switch.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/spin.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/ladda.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/moment.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/mockjax.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/bootstrap-editable.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/xeditable-demo-mock.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/xeditable-demo.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/address.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/daterange-picker.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/date.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/morris.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/skycons.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/fitvids.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.sparkline.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/dropzone.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/main.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/respond.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/jquery.autocomplete.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/sweetalert2.min.js')}}" type="text/javascript"></script>--}}
-{{--<script src="{{URL::asset('javascripts/sum().js')}}" type="text/javascript"></script>--}}
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+<script src="{{asset('javascripts/bootstrap.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/raphael.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/selectivizr-min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.mousewheel.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.vmap.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.vmap.sampledata.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.vmap.world.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.bootstrap.wizard.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/fullcalendar.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/gcal.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.dataTables.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/datatable-editable.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.easy-pie-chart.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/excanvas.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.isotope.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/isotope_extras.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/modernizr.custom.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.fancybox.pack.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/select2.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/styleswitcher.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/wysiwyg.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/summernote.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.inputmask.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.validate.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/bootstrap-fileupload.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/bootstrap-datepicker.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/bootstrap-timepicker.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/bootstrap-colorpicker.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/bootstrap-switch.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/spin.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/ladda.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/moment.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/mockjax.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/bootstrap-editable.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/xeditable-demo-mock.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/xeditable-demo.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/address.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/daterange-picker.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/date.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/morris.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/skycons.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/fitvids.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.sparkline.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/dropzone.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/main.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/respond.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/jquery.autocomplete.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/sweetalert2.min.js')}}" type="text/javascript"></script>
+<script src="{{URL::asset('javascripts/sum().js')}}" type="text/javascript"></script>
 
-{{--<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>--}}
-{{--<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>--}}
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 
 
 
